@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   # post '/users', to: 'users#create'
   resources :users, only: %i[create show] do
     resources :discover, only: [:index]
-    resources :movies, only: %i[index show] do
-      resources :parties, only: %i[new create]
+    resources :movies, only: [:index, :show] do
+      resources :parties, only: [:new, :create]
     end
   end
 end
